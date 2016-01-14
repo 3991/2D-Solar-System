@@ -562,3 +562,33 @@
 	<SFML/Network/Socket.hpp>
 	<vector>
 
+1452778636 source:c:\program files (x86)\codeblocks\projets\2dsolarsystem\main.cpp
+	<SFML/Graphics.hpp>
+	<math.h>
+	<iostream>
+	"Process.h"
+	"Player.h"
+	"Time.h"
+
+1452699536 c:\program files (x86)\codeblocks\projets\2dsolarsystem\process.h
+	<SFML/System.hpp>
+	<string>
+	<cstdio>
+
+1452699277 source:c:\program files (x86)\codeblocks\projets\2dsolarsystem\process.cpp
+	"process.h"
+
+1452701207 source:c:\program files (x86)\codeblocks\projets\2dsolarsystem\player.cpp
+	"Player.h"
+
+1452701220 c:\program files (x86)\codeblocks\projets\2dsolarsystem\player.h
+	<SFML/Graphics.hpp>
+	<SFML/System.hpp>
+
+1452778670 c:\program files (x86)\codeblocks\projets\2dsolarsystem\time.h
+	<SFML/System.hpp>
+	<iostream>
+
+1452778716 source:c:\program files (x86)\codeblocks\projets\2dsolarsystem\time.cpp
+	"Time.h"
+

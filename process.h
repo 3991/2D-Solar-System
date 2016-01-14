@@ -4,7 +4,6 @@
 #include <SFML/System.hpp>
 #include <string>
 #include <cstdio>
-#include <SFML/Network.hpp>
 
 class Process
 {

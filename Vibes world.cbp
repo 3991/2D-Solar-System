@@ -44,9 +44,13 @@
 		<Linker>
 			<Add directory="C:/Program Files (x86)/SFML-2.1/lib" />
 		</Linker>
+		<Unit filename="Player.cpp" />
+		<Unit filename="Player.h" />
+		<Unit filename="Process.cpp" />
+		<Unit filename="Process.h" />
+		<Unit filename="Time.cpp" />
+		<Unit filename="Time.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="process.cpp" />
-		<Unit filename="process.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

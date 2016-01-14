@@ -8,6 +8,6 @@ Process::~Process(){
 }
 
 float Process::translateKmInPixel(float nb){
-    //return nb;
+    //400px=6378km
     return nb/15;
 }
