@@ -17,12 +17,18 @@
 #define _SUN_MERCURY_DISTANCE_KM 58000.f
 #define _SUN_VENUS_DISTANCE_KM 108000.f
 #define _SUN_EARTH_DISTANCE_KM 150000.f
+#define _SUN_MARS_DISTANCE_KM 228000.f
+#define _SUN_JUPITER_DISTANCE_KM 778000.f
 
 #define _MERCURY_RADIUS_KM 2440.f
 
 #define _VENUS_RADIUS_KM 6050.f
 
 #define _EARTH_RADIUS_KM 6378.f
+
+#define _MARS_RADIUS_KM 3396.f
+
+#define _JUPITER_RADIUS_KM 71492.f
 
 int main()
 {
@@ -81,6 +87,19 @@ int main()
     y = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_EARTH_DISTANCE_KM+_SUN_RADIUS_KM+_EARTH_RADIUS_KM))*sin(angle * _PI / 180.0);
     earth.setPosition({x, y});
 
+    sf::CircleShape mars(Process().translateKmInPixel(_MARS_RADIUS_KM));
+    mars.setOrigin({mars.getLocalBounds().width/2, mars.getLocalBounds().height/2});
+    mars.setFillColor(sf::Color::Blue);
+    x = _SUN_X_PX + (Process().translateKmInPixel(_SUN_MARS_DISTANCE_KM+_SUN_RADIUS_KM+_MARS_RADIUS_KM))*cos(angle * _PI / 180.0);
+    y = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_MARS_DISTANCE_KM+_SUN_RADIUS_KM+_MARS_RADIUS_KM))*sin(angle * _PI / 180.0);
+    mars.setPosition({x, y});
+
+    sf::CircleShape jupiter(Process().translateKmInPixel(_JUPITER_RADIUS_KM));
+    jupiter.setOrigin({jupiter.getLocalBounds().width/2, jupiter.getLocalBounds().height/2});
+    jupiter.setFillColor(sf::Color::Blue);
+    x = _SUN_X_PX + (Process().translateKmInPixel(_SUN_JUPITER_DISTANCE_KM+_SUN_RADIUS_KM+_JUPITER_RADIUS_KM))*cos(angle * _PI / 180.0);
+    y = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_JUPITER_DISTANCE_KM+_SUN_RADIUS_KM+_JUPITER_RADIUS_KM))*sin(angle * _PI / 180.0);
+    jupiter.setPosition({x, y});
 
 
     Player player(20000.f, 20000.f, 50000.f, 0.f, sf::Color::Red);
@@ -136,6 +155,8 @@ int main()
         window.draw(mercury);
         window.draw(venus);
         window.draw(earth);
+        window.draw(mars);
+        window.draw(jupiter);
         player.display(window);
 
         if(minimapview){
@@ -147,6 +168,8 @@ int main()
             window.draw(mercury);
             window.draw(venus);
             window.draw(earth);
+            window.draw(mars);
+            window.draw(jupiter);
             player.display(window);
         }
 
