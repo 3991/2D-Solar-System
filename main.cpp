@@ -19,6 +19,9 @@
 #define _SUN_EARTH_DISTANCE_KM 150000.f
 #define _SUN_MARS_DISTANCE_KM 228000.f
 #define _SUN_JUPITER_DISTANCE_KM 778000.f
+#define _SUN_SATURN_DISTANCE_KM 1427000.f
+#define _SUN_URANUS_DISTANCE_KM 2870000.f
+#define _SUN_NEPTUNE_DISTANCE_KM 4497000.f
 
 #define _MERCURY_RADIUS_KM 2440.f
 
@@ -29,6 +32,12 @@
 #define _MARS_RADIUS_KM 3396.f
 
 #define _JUPITER_RADIUS_KM 71492.f
+
+#define _SATURN_RADIUS_KM 60268.f
+
+#define _URANUS_RADIUS_KM 25559.f
+
+#define _NEPTUNE_RADIUS_KM 24766.f
 
 int main()
 {
@@ -43,7 +52,7 @@ int main()
     minimap.setViewport(sf::FloatRect(0.1f, 0.1f, 0.75f, 0.75f));
 
     view1.zoom(200.f);
-    minimap.zoom(500.f);
+    minimap.zoom(800.f);
     bool minimapview = false;
 
 
@@ -51,7 +60,7 @@ int main()
     sf::RectangleShape rectangle(sf::Vector2f(_WINDOW_WIDTH*0.75, _WINDOW_HEIGHT*0.75));
     rectangle.setPosition(sf::Vector2f(_WINDOW_WIDTH*0.10,_WINDOW_HEIGHT*0.10));
     rectangle.setOutlineColor(sf::Color(0,0,255,100));
-    rectangle.setOutlineThickness(30.f);
+    rectangle.setOutlineThickness(80.f);
     //rectangle.setFillColor(sf::Color::Blue);
 
 
@@ -101,6 +110,27 @@ int main()
     y = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_JUPITER_DISTANCE_KM+_SUN_RADIUS_KM+_JUPITER_RADIUS_KM))*sin(angle * _PI / 180.0);
     jupiter.setPosition({x, y});
 
+    sf::CircleShape saturn(Process().translateKmInPixel(_SATURN_RADIUS_KM));
+    saturn.setOrigin({saturn.getLocalBounds().width/2, saturn.getLocalBounds().height/2});
+    saturn.setFillColor(sf::Color::Red);
+    x = _SUN_X_PX + (Process().translateKmInPixel(_SUN_SATURN_DISTANCE_KM+_SUN_RADIUS_KM+_SATURN_RADIUS_KM))*cos(angle * _PI / 180.0);
+    y = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_SATURN_DISTANCE_KM+_SUN_RADIUS_KM+_SATURN_RADIUS_KM))*sin(angle * _PI / 180.0);
+    saturn.setPosition({x, y});
+
+    sf::CircleShape uranus(Process().translateKmInPixel(_URANUS_RADIUS_KM));
+    uranus.setOrigin({uranus.getLocalBounds().width/2, uranus.getLocalBounds().height/2});
+    uranus.setFillColor(sf::Color::Red);
+    x = _SUN_X_PX + (Process().translateKmInPixel(_SUN_URANUS_DISTANCE_KM+_SUN_RADIUS_KM+_URANUS_RADIUS_KM))*cos(angle * _PI / 180.0);
+    y = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_URANUS_DISTANCE_KM+_SUN_RADIUS_KM+_URANUS_RADIUS_KM))*sin(angle * _PI / 180.0);
+    uranus.setPosition({x, y});
+
+    sf::CircleShape neptune(Process().translateKmInPixel(_NEPTUNE_RADIUS_KM));
+    neptune.setOrigin({neptune.getLocalBounds().width/2, neptune.getLocalBounds().height/2});
+    neptune.setFillColor(sf::Color::Black);
+    x = _SUN_X_PX + (Process().translateKmInPixel(_SUN_NEPTUNE_DISTANCE_KM+_SUN_RADIUS_KM+_NEPTUNE_RADIUS_KM))*cos(angle * _PI / 180.0);
+    y = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_NEPTUNE_DISTANCE_KM+_SUN_RADIUS_KM+_NEPTUNE_RADIUS_KM))*sin(angle * _PI / 180.0);
+    neptune.setPosition({x, y});
+
 
     Player player(20000.f, 20000.f, 50000.f, 0.f, sf::Color::Red);
 
@@ -141,7 +171,8 @@ int main()
 
         //if(player. sur planète)
         //player.updatePosition(newX-x, newY-y);
-        x = newX; y = newY;
+        x = newX;
+        y = newY;
         mercury.setPosition({x, y});
 
 
@@ -157,6 +188,9 @@ int main()
         window.draw(earth);
         window.draw(mars);
         window.draw(jupiter);
+        window.draw(saturn);
+        window.draw(uranus);
+        window.draw(neptune);
         player.display(window);
 
         if(minimapview){
@@ -170,6 +204,9 @@ int main()
             window.draw(earth);
             window.draw(mars);
             window.draw(jupiter);
+            window.draw(saturn);
+            window.draw(uranus);
+            window.draw(neptune);
             player.display(window);
         }
 
