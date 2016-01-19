@@ -60,7 +60,7 @@ int main()
     sf::RectangleShape rectangle(sf::Vector2f(_WINDOW_WIDTH*0.75, _WINDOW_HEIGHT*0.75));
     rectangle.setPosition(sf::Vector2f(_WINDOW_WIDTH*0.10,_WINDOW_HEIGHT*0.10));
     rectangle.setOutlineColor(sf::Color(0,0,255,100));
-    rectangle.setOutlineThickness(80.f);
+    rectangle.setOutlineThickness(1000.f);
 
 
 
@@ -164,7 +164,7 @@ int main()
         }
 
         if(time.update(mercuryAngle)){
-            if(mercuryAngle<360){
+            if(mercuryAngle < 360){
                 mercuryAngle += 15;
             }else{
                 mercuryAngle = 0;
@@ -177,7 +177,7 @@ int main()
             mercury.setPosition({x, y});
 
 
-            if(venusAngle<360){
+            if(venusAngle < 360){
                 venusAngle += 15;
             }else{
                 venusAngle = 0;
@@ -191,7 +191,7 @@ int main()
 
 
 
-            if(earthAngle<360){
+            if(earthAngle < 360){
                 earthAngle += 15;
             }else{
                 earthAngle = 0;
@@ -201,6 +201,71 @@ int main()
             x = newX;
             y = newY;
             earth.setPosition({x, y});
+
+
+
+            if(marsAngle < 360){
+                marsAngle += 15;
+            }else{
+                marsAngle = 0;
+            }
+            newX = _SUN_X_PX + (Process().translateKmInPixel(_SUN_MARS_DISTANCE_KM+_SUN_RADIUS_KM+_MARS_RADIUS_KM))*cos(marsAngle * _PI / 180.0);
+            newY = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_MARS_DISTANCE_KM+_SUN_RADIUS_KM+_MARS_RADIUS_KM))*sin(marsAngle * _PI / 180.0);
+            x = newX;
+            y = newY;
+            mars.setPosition({x, y});
+
+
+
+            if(jupiterAngle < 360){
+                jupiterAngle += 15;
+            }else{
+                jupiterAngle = 0;
+            }
+            newX = _SUN_X_PX + (Process().translateKmInPixel(_SUN_JUPITER_DISTANCE_KM+_SUN_RADIUS_KM+_JUPITER_RADIUS_KM))*cos(jupiterAngle * _PI / 180.0);
+            newY = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_JUPITER_DISTANCE_KM+_SUN_RADIUS_KM+_JUPITER_RADIUS_KM))*sin(jupiterAngle * _PI / 180.0);
+            x = newX;
+            y = newY;
+            jupiter.setPosition({x, y});
+
+
+
+            if(saturnAngle < 360){
+                saturnAngle += 15;
+            }else{
+                saturnAngle = 0;
+            }
+            newX = _SUN_X_PX + (Process().translateKmInPixel(_SUN_SATURN_DISTANCE_KM+_SUN_RADIUS_KM+_SATURN_RADIUS_KM))*cos(saturnAngle * _PI / 180.0);
+            newY = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_SATURN_DISTANCE_KM+_SUN_RADIUS_KM+_SATURN_RADIUS_KM))*sin(saturnAngle * _PI / 180.0);
+            x = newX;
+            y = newY;
+            saturn.setPosition({x, y});
+
+
+
+            if(uranusAngle < 360){
+                uranusAngle += 15;
+            }else{
+                uranusAngle = 0;
+            }
+            newX = _SUN_X_PX + (Process().translateKmInPixel(_SUN_URANUS_DISTANCE_KM+_SUN_RADIUS_KM+_URANUS_RADIUS_KM))*cos(uranusAngle * _PI / 180.0);
+            newY = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_URANUS_DISTANCE_KM+_SUN_RADIUS_KM+_URANUS_RADIUS_KM))*sin(uranusAngle * _PI / 180.0);
+            x = newX;
+            y = newY;
+            uranus.setPosition({x, y});
+
+
+
+            if(neptuneAngle < 360){
+                neptuneAngle += 15;
+            }else{
+                neptuneAngle = 0;
+            }
+            newX = _SUN_X_PX + (Process().translateKmInPixel(_SUN_NEPTUNE_DISTANCE_KM+_SUN_RADIUS_KM+_NEPTUNE_RADIUS_KM))*cos(neptuneAngle * _PI / 180.0);
+            newY = _SUN_Y_PX + (Process().translateKmInPixel(_SUN_NEPTUNE_DISTANCE_KM+_SUN_RADIUS_KM+_NEPTUNE_RADIUS_KM))*sin(neptuneAngle * _PI / 180.0);
+            x = newX;
+            y = newY;
+            neptune.setPosition({x, y});
         }
 
         // **************************** DISPLAY ****************************
