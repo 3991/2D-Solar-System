@@ -29,9 +29,9 @@ int Time::update(int angle){
 
 
         if(angle<360){
-            angle += 15;
+            //angle += 15;
         }else{
-            angle=0;
+            //angle=0;
         }
 
 
@@ -45,7 +45,8 @@ int Time::update(int angle){
         std::cout << "[D/M/Y]:" << day << "/" << month << "/" << year << std::endl;
         std::cout << "Hour:" << hour << ".00" << std::endl;
         change = false;
+        return true;
     }
 
-    return angle;
+    return false;
 }
